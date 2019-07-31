@@ -1,0 +1,32 @@
+.address-contact{
+    padding: 15px 0;
+    .address-contact-wrapper{
+        text-align: center;
+        .name-company{
+            margin-bottom: 20px;
+            h3{
+                @include text(20px 'UTM Caviar',null,uppercase);
+                color: #181818;
+                margin-bottom: 0;
+            }
+        }
+        .factory,.showroom,.ewt{
+            margin-bottom: 20px;
+            h4{
+                @include text(bold 14px 'UTM Caviar');
+                color: #181818;
+                margin-bottom: 0;
+            }
+            p{
+                @include text(14px 'UTM Caviar');
+                color: #181818;
+                margin-bottom: 0;
+            }
+            a,span{
+                @include text(14px 'UTM Caviar',null,null,none);
+                color: #181818;
+                margin-bottom: 0;
+            }
+        }
+    }
+}

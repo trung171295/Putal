@@ -1,0 +1,61 @@
+.registration{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 30px 0;
+    .registration-wrapper{
+        .logan-registration{
+            text-align: center;
+            margin-bottom: 25px;
+            h1{
+                @include text(25px 'UTM BryantLG',1,uppercase);
+                color: $color-logan;
+                margin-bottom: 0;
+            }
+        }
+        .form-registration{
+            width: 35%;
+            margin: auto;
+            form{
+                .form-group{
+                    display: block;
+                    &:last-child{
+                        margin-bottom: 25px;
+                    }
+                    input.form-control{
+                        @include size(100%,2.5rem);
+                        color: $color-logan;
+                        @include text(bold 12px 'UTM BryantLG');
+                        background-color: rgba($color: #37113e, $alpha: .8);
+                        padding:15px 25px;
+                        border: 1px solid $color-logan;
+                        border-radius: 0;
+                        margin: auto;
+                        transition: background-color 0.3s ease-in-out;
+                        &:focus{
+                            outline: none;
+                        }
+                        &::placeholder{
+                            color: hsla(0, 0%, 100%, 0.6);
+                        }
+                    }
+                    span.error{
+                        @include text(12px 'UTM Caviar');
+                        color: $color-w;
+                        display: block;
+                        margin:0.5rem 0 1rem 0;
+                    }
+                }
+                .mt-group{
+                    @include flex();
+                    .form-group{
+                        margin:0;
+                        &:first-child{
+                            width: 60%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

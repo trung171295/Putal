@@ -1,0 +1,317 @@
+// header-top
+.header-top{
+    background-color: $bg-header-top;
+    .header-top-wrapper{
+        @include flex(null,center);
+
+        // list-hotline-top
+        .list-hotline-top{
+            .nav-hotline-top{
+                li.nav-item{
+                    a.nav-link{
+                        padding: 10px 16px 5px 0;
+                        @include text(0.65rem 'UTM Avo');
+                        color: $color-social-top;
+                        i,svg{
+                            margin-right: 7px;
+                        }
+                        &:hover{
+                            color: $color-title;
+                        }
+                    }
+                    &:nth-child(2){
+                        a.nav-link{
+                            svg{
+                                @include transform(rotateZ(110deg));
+                                border-radius: 50%;
+                                border-color: $color-social-top; 
+                                border: 1px solid; 
+                                padding: 2px;                          }
+                        }
+                    }
+                }
+            }
+        }
+        // end list-hotline-top
+
+        // list-social-top
+        .list-social-top{
+            @include flex(flex-end,center);
+            margin-left: auto;
+            .nav-social-top{
+                li.nav-item{
+                    padding: 0 4px;
+                    padding-top: 10px;
+                    padding-bottom: 5px;
+                    a.nav-link{
+                        color: $color-w;
+                        padding: 0;
+                        @include size(20px,20px);
+                        font-size: 12px;
+                        @include flex(center,center);
+                        @include transition(all 0.3s ease);
+                        background-color: $color-social-top;
+                        border: 1px solid $color-social-top;
+                        border-radius: 50%;
+                        &:hover{
+                            background-color: $color-title;
+                            color: $color-w;
+                            @include transition(all 0.3s ease);
+                        }
+                    }
+                }
+            }
+            .freeship{
+                margin-left: 20px;
+                span{
+                    @include text(0.65rem 'UTM Avo');
+                    color: $color-social-top;
+                    i,svg{
+                        margin-right: 7px;
+                    }
+                }
+            }
+        }
+        // end list-social-top
+    }
+}
+// end header-top
+
+// header-menu
+.header-menu{
+    @include size(100%,80px);
+    @include transition(all 0.4s ease-out);
+    z-index: 5;
+    background: linear-gradient(360deg, #ececec 15%, #fafbfa 45%, white 100%);
+    &.is-fixed{
+        @include size(100%,60px);
+        @include transition(all 0.4s ease-in);
+        @include transform(translateZ(10px));
+        position: fixed;
+        top:0;
+        left:0;
+        box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.125);
+        .header-menu-wrapper{
+            @include size(100%,60px);
+            @include transition(all 0.4s ease-in);
+        }
+    }
+    .header-menu-wrapper{
+        @include size(100%,80px);
+        @include flex(null,center);
+        @include transition(all 0.4s ease-out);
+        .logo{
+            @include size(25%,100%);
+            @include flex(null,center);
+            img{
+                @include img-fit(null,cover);
+            }
+        }
+        .menu-primary{
+            @include size(auto,100%);
+            .nav-menu-primary{
+                align-items: center;
+                flex-wrap: nowrap;
+                height: 100%;
+                li.item-menu{
+                    height: 100%;
+                    @include flex(null,center);
+                    padding:  0 18px;
+                    position: relative;
+                    .link{
+                        @include text(14px 'UTM BryantLG',null,uppercase);
+                        color: $color-black;
+                        padding: 0;
+                        position: relative;
+                        white-space: nowrap;
+                        @include transition (all .5s ease);
+                        &:before{
+                            @include before(
+                                '',
+                                null,
+                                0,
+                                0,
+                                -5px
+                            );
+                            height: 3px;
+                            background-color: $color-title;
+                            transform-origin: bottom right;
+                            @include transform(scaleX(0));
+                            @include transition(transform 0.5s ease);
+                        }
+                        &.active{
+                            @include text(bold 14px 'UTM BryantLG');
+                            &:before{
+                                transform-origin: bottom left;
+                                @include transform(scaleX(1));
+                            }
+                        }
+                    }
+                    &:first-child{
+                        padding-left: 0;
+                    }
+                    //hover
+                    &:hover{
+                        .link{
+                            @include text(bold 14px 'UTM BryantLG');
+                            @include transition (all .5s ease);
+                            &:before{
+                                transform-origin: bottom left;
+                                @include transform(scaleX(1));
+                            }
+                        }
+                        .menu-has-child{
+                            visibility: visible;
+                            opacity: 1;
+                            @include transform(translateX(0));
+                            @include transition(all .4s ease);
+                        }
+                    }
+                    // has-child
+                    &.has-child{
+                        .fa-caret-down{
+                            color: $color-title;
+                            margin-left: 8px;
+                        }
+                        &:hover{
+                            .link{
+                                &:before{
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                    // has-child-menu
+                    .menu-has-child{
+                        background-color: $color-w;
+                        display: block;
+                        position: absolute;
+                        @include size(170px,auto);
+                        top: 100%;
+                        left: 18px;
+                        z-index: 11;
+                        visibility: hidden;
+                        opacity: 0;
+                        @include transform(translateY(-15px));
+                        @include transition(all .4s ease);
+                        &:before{
+                            @include before(
+                                '',
+                                0,
+                                3px
+                            );
+                            @include size(100%,3px);
+                            @include transform(translateX(-3px));
+                            background-color:  $color-title;
+                        }
+                        .nav-menu-has-child{
+                            width: 100%;
+                            display: block;
+                            li.nav-item-child{
+                                width: 100%;
+                                padding: 5px;
+                                border-bottom: 1px solid #e9e4eb;
+                                position: relative;
+                                &:last-child{
+                                    border-bottom: none;
+                                }
+                                &.has-child2{
+                                   &:before{
+                                       @include before(
+                                           '\f0da',
+                                           50%,
+                                           90%,
+                                       );
+                                       @include transform(translate(-50%,-50%));
+                                       color: #64489d;
+                                       font-family: 'Font Awesome 5 Pro';
+                                       font-weight: 900; 
+                                   }
+                                }
+                                &:hover{
+                                    .link-sub{
+                                        background-color: $hover;
+                                        @include transition(all .4s ease);
+                                        font-weight: bold;
+                                    }
+                                    .menu-has-child2{
+                                        visibility: visible;
+                                        opacity: 1;
+                                        @include transition(all .4s ease);
+                                        @include transform(translateX(0));
+                                    }
+                                }
+                                .link-sub{
+                                    @include text(14px 'UTM BryantLG',null,uppercase);
+                                    color: $color-black;
+                                    padding: 10px 15px;
+                                    &.active{
+                                        background-color: $hover;
+                                        @include transition(all .4s ease);
+                                        font-weight: bold;
+                                    }
+                                }
+
+                                // has-child lv2
+                                .menu-has-child2{
+                                    position: absolute;
+                                    visibility: hidden;
+                                    opacity: 0;
+                                    background-color: $color-w;
+                                    top: 0;
+                                    left: 100%;
+                                    z-index: 11;
+                                    @include size(170px,auto);
+                                    @include transform(translateX(-15px));
+                                    .nav-has-child2{
+                                        width: 100%;
+                                        display: block;
+                                        li.item-child2{
+                                            width: 100%;
+                                            padding: 5px;
+                                            border-bottom: 1px solid #e9e4eb;
+                                            position: relative;
+                                            &:last-child{
+                                                border-bottom: none;
+                                            }
+                                            .link-sub2{
+                                                @include text(14px 'UTM BryantLG',null,uppercase);
+                                                color: $color-black;
+                                                padding: 10px 15px;
+                                                &:hover{
+                                                    background-color: $hover;
+                                                    @include transition(all .4s ease);
+                                                    font-weight: bold;
+                                                }
+
+                                                &.active{
+                                                    background-color: $hover;
+                                                    @include transition(all .4s ease);
+                                                    font-weight: bold;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                    // end has-child-menu
+                }
+            }
+        }
+    }
+}
+
+//icon-menu
+.icon-mobile{
+    display: none;
+    a{
+        @include size(100%,100%);
+        display: block;
+    }
+}
+#menu{
+    display: none;
+}

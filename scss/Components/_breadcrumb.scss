@@ -1,0 +1,124 @@
+.breadcrumb-nav{
+    background-color: $bg-breadcrumb;
+    padding: 1rem 0;
+    position: relative;
+    @include transform(all 0.3s ease);
+    &.fixed{
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: 4;
+        box-shadow: 0 -12px 20px -12px rgba($color: $color-title, $alpha: .4), 0 12px 20px -12px rgba($color: $color-title, $alpha: .4);
+        @include transform(all 0.3s ease);
+        .breadcrumb{
+            display: none;
+        }
+        .contact-breadcrumb{
+            position: absolute;
+            left: 50%;
+            width: 40%;
+           @include transform(translateX(-50%));
+           @include transition(transform 0.3s ease-in);
+           .nav-contact-breadcrumb{
+               width: 100%;
+               justify-content: space-between;
+           }
+        }
+    }
+    .breadcrum-nav-wrapper{
+        @include flex(null,center);
+        .breadcrumb{
+            background-color: transparent;
+            margin-bottom: 0;
+            padding: 0;
+            .breadcrumb-item{
+                @include text(12px 'UTM BryantLG',1,uppercase);
+                color: $color-black;
+                &:first-child{
+                    position: relative;
+                    &:before{
+                        @include before(
+                        '\f80a',
+                        50%,
+                        0
+                        );
+                        @include transform(translateY(-50%));
+                        color: #b6b7b7;
+                        font-size: inherit;
+                        font-family: 'Font Awesome 5 Pro';
+                        font-weight: 900;
+                    }
+                    a{
+                        padding-left: 1.5rem;
+                    }
+                }
+                a{
+                    @include text(12px 'UTM BryantLG',1,uppercase,none);
+                    color: $color-black;  
+                    &:hover{
+                        color: $color-title;
+                    }
+                }
+            }
+        }
+        .contact-breadcrumb{
+            margin-left: auto;
+            @include transition(transform 0.4s ease-out);
+            .nav-contact-breadcrumb{
+                .nav-item{
+                    margin-right: 1rem;
+                    &:nth-child(1){
+                        a.nav-link{
+                            &:hover{
+                                i,svg{
+                                    color: rgb(0,198,255);
+                                }
+                            }
+                        }
+                    }
+                    &:nth-child(2){
+                        a.nav-link{
+                            i,svg{
+                                @include transform(rotate(90deg));
+                            }
+                            &:hover{
+                                i,svg{
+                                    color: #85ca55;
+                                }
+                            }
+                        }
+                    }
+                    &:nth-child(3){
+                        a.nav-link{
+                            &:hover{
+                                i,svg{
+                                    color: #f17600;
+                                }
+                            }
+                        }
+                    }
+                    a.nav-link{
+                        padding: 0;
+                        @include text(10.25px 'UTM BryantLG',1,uppercase);
+                        @include transition(all 0.4s ease-out);
+                        color: #b4b5b5;
+                        &:hover{
+                            @include transition(all 0.4s ease-in);
+                            color: $bg-button;
+                            i,svg{
+                                text-shadow: 0 0 18px rgba($color: $color-title, $alpha: .5);
+                                @include transition(all 0.4s ease-in);
+                            }
+                        }
+                        i,svg{
+                            color: #b4b5b5;
+                            font-size: 1rem;
+                            margin-right: 3px;
+                            @include transition(all 0.4s ease-out);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

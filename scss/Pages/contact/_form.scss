@@ -1,0 +1,75 @@
+.form-contact{
+    padding: 20px 0;
+    .form-contact-wrapper{
+        width: 80%;
+        margin: auto;
+        form{
+            .form-group{
+                @include flex(null,flex-start);
+                label{
+                    @include text(14px 'UTM Caviar');
+                    color: #3a3939;
+                    white-space: nowrap;
+                    width: 10%;
+                    line-height: 3;
+                }
+                .sp{
+                    position: relative;
+                    width: 90%;
+                    input.form-control{
+                        @include size(100%,3rem);
+                        border: 1px solid #e2e2e2;
+                        border-radius: 0;
+                        &:focus{
+                            outline: none;
+                            border-color: transparent;
+                            background-color: $bg-product-gray;
+                            opacity: .7;
+                            box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.35);
+                            ~ span.bottom{
+                                transform-origin: bottom right;
+                                @include transform(scaleY(1));
+                            }
+                        }
+                        &::placeholder{
+                            color: hsla(0, 0%, 100%, 0.6);
+                        }
+                    }
+                    textarea.form-control{
+                        @include size(100%,auto);
+                        border: 1px solid #e2e2e2;
+                        border-radius: 0;
+                        &:focus{
+                            outline: none;
+                            border-color: transparent;
+                            background-color: $bg-product-gray;
+                            opacity: .7;
+                            box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.35);
+                            ~ span.bottom{
+                                transform-origin: bottom right;
+                                @include transform(scaleY(1));
+                            }
+                        }
+                        &::placeholder{
+                            color: color-title;
+                        }
+                    }
+                    span.bottom{
+                        position: absolute;
+                        bottom: 0;
+                        top: 0;
+                        background-color: $bg-button;
+                        transform-origin: top bottom;
+                        @include size(100%,3px);
+                        @include transform(scaleY(0));
+                        @include transition(transform 0.3s ease-out);
+                    }
+                    span{
+                        color: $color-price;
+                        position: relative;
+                    }
+                }
+            }
+        }
+    }
+}

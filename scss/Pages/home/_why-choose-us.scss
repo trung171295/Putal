@@ -1,0 +1,68 @@
+.why-choose-us{
+    background-attachment: fixed;
+    background-size: contain;
+    background-position: center;
+    padding-bottom: 50px;
+    .why-choose-us-wrapper{
+        .group-icon{
+            margin: auto;
+            text-align: center;
+            padding: 10px 0;
+            width: calc(100% / 3);
+            border: 4px solid $bg-product-primary;
+            border-top: none;
+        }
+        .group-post{
+            margin-top: 35px;
+            text-align: center;
+            .name{
+                margin-bottom: 15px;
+                h2{
+                    @include text(26px 'UTM BryantLG',1.5,uppercase);
+                    color: $bg-product-primary;
+                    margin-bottom: 0;
+                }
+            }
+            .summary{
+                p{
+                    @include text(12px 'UTM Caviar',1rem);
+                    color: $bg-product-primary;
+                }
+            }
+        }
+        .list-answer{
+            width: 100%;
+            margin: auto;
+            padding: 15px 0;
+            .sw-list-answer{
+                .swiper-wrapper{
+                    justify-content: center;
+                }
+                .answer-item{
+                    width: 100%;
+                    .icon{
+                        @include size(120px,120px);
+                        @include flex(center,center);
+                        border-radius: 50%;
+                        border: 1px solid #656565;
+                        margin: auto;
+                        margin-bottom: 10px;
+                        img{
+                            @include img-fit(null,cover);
+                        }
+                    }
+                    .answer{
+                        text-align: center;
+                        h4{
+                            @include text(14px 'UTM BryantLG',null,uppercase);
+                            color: $bg-product-primary;
+                        }
+                    }
+                }
+            }
+            .next-answer,.prev-answer{
+                display: none;
+            }
+        }
+    }
+}

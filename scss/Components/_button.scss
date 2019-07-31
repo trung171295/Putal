@@ -1,0 +1,195 @@
+.btn-slide-details{
+    @include text(bold 10px 'UTM Neo Sans Intel',null,uppercase);
+    color: $color-black;
+    border: 1px solid;
+    border-color: transparent;
+    border-radius: 25px;
+    background-color: $color-w;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 32px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    &:before{
+        @include before(
+            '',
+            0,
+            -0.5rem,
+            -0.5rem,
+            0
+        );
+        border-radius: 25px;
+        border: 1px solid;
+        border-color: transparent;
+        background-color: $color-w;
+        transform-origin: center right;
+        @include transform(scaleX(0));
+        @include transition(transform 0.5s ease-in-out);
+        z-index: -1;
+    }
+    &:hover{
+        color: $color-w;
+        &:before{
+            transform-origin: center left;
+            background-color: $color-title;
+            @include transform(scaleX(1));
+            @include transition(transform 0.5s ease-in);
+        }
+    }
+}
+.link-details{
+    .btn-ldetails{
+        padding: 8px 26px;
+        background-color: $color-w;
+        border: 1px solid $color-title;
+        @include text(bold 12px 'UTM BryantLG',null,uppercase,none);
+        @include transition(all .5s ease-out);
+        color: $color-title;
+        cursor: pointer;
+        position: relative;
+        outline: none;
+        z-index: 1;
+        i,svg{
+            margin-left: 10px;
+        }
+        &:before{
+            @include before(
+                '',
+                0,
+                0,
+                0,
+                0
+            );
+            border: 1px solid hsl(237, 10%, 45%);
+            border-radius: 5px;
+            filter: blur(2px);
+            transform-origin: center;
+            @include transform(scale(1));
+            z-index: -1;
+        }
+        &:hover{
+            background-color: $color-title;
+            color: $color-w;
+            &:before{
+                opacity: 0;
+                transform-origin: center;
+                @include transform(scale(1.8));
+                @include transition(all .75s ease-in-out);
+            }
+            @include transition( all .75s ease-in);
+            box-shadow: 12px 12px 20px -6px rgba(0, 0, 0, 0.35);
+        }
+    }
+}
+
+.btn-submit{
+    z-index: 1;
+    position: relative;
+    padding: 12px 18px;
+    outline: none;
+    border: 1px solid $color-logan;
+    background-color: $bg-button;
+    color: $color-logan;
+    overflow: hidden;
+    @include text(bold 1rem 'UTM BryantLG',1,uppercase);
+    @include transition(color 0.4s ease-in-out);
+    i,svg{
+        margin-left: 0.5rem;
+    }
+    span{
+        margin-left: 30px;
+        &:before{
+            @include before(
+                '',
+                0%,
+                calc(80% - 8px)
+            );
+            @include size(1px,100%);
+            background-color: $color-w;
+            opacity: .8;
+        }
+    }
+    &:before{
+        @include before(
+            '',
+            50%,
+            50%
+        );
+        @include size(100%,100%);
+        border-radius: 50%;
+        background-color: $color-w;
+        transform-origin: center;
+        @include transform(translate3d(-50%, -50%, 0) scale3d(0, 0, 0));
+        @include transition(transform 0.45s ease-in-out);
+        z-index: -1;
+    }
+    &:hover{
+        cursor: pointer;
+        color: $bg-button;
+        border: 1px solid $bg-button;
+        &:before{
+            @include transform(translate3d(-50%, -50%, 0) scale3d(15, 15, 15));
+        }
+        span{
+            &:before{
+                background-color: $bg-button;
+            }
+        }
+    }
+}
+.add-card{
+    display: inline-block; 
+    overflow: hidden;
+    @include size(20%,38px);
+    .btn-add-card{
+        @include size(100%,100%);
+        @include flex(center,center);
+        @include text(bold 14px 'UTM BryantLG',null,uppercase,none);
+        outline: none;
+        color: #fcfcfc!important;
+        background-color: #5f0066;
+        border-radius: 1px;
+        border: 1px solid #fcfcfc;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        transition: 0.5s;
+    }
+    span{
+        position: absolute;
+        width: 25%;
+        height: 100%;
+        transform: translateY(150%);
+        border-radius: 50%;
+        background-color: $color-w;
+        left: calc((var(--n) - 1) * 25%);
+        transition: 0.5s;
+        transition-delay: calc((var(--n) - 1) * 0.1s);
+        z-index: -1;
+    }
+    &:hover{
+        .btn-add-card{
+            color: $color-w;
+            background-color: transparent;
+        }
+        span{
+            transform: translateY(0) scale(2);
+            background-color: #5f0066;
+            &:nth-child(1){
+                --n: 1;
+            }
+            &:nth-child(2){
+                --n: 2;
+            }
+            &:nth-child(3){
+                --n: 3;
+            }
+            &:nth-child(4){
+                --n: 4;
+            }
+        }
+    }
+}

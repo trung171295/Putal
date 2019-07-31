@@ -1,0 +1,9 @@
+.banner{
+    @include size(100%,auto);
+figure{
+    margin-bottom: 0;
+    img{
+        @include img-fit(100%,cover);
+    }
+}
+}

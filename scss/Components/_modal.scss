@@ -1,0 +1,147 @@
+.modal-add-to-card{
+    .modal{
+        @include size(100%,auto);
+
+    }
+    .modal-form{
+        .modal-dialog{
+            max-width: 70%;
+            .modal-content{
+                .close{
+                    position: absolute;
+                    right: 20px;
+                    top: 5px;
+                    font-size:3rem;
+                    font-weight: 300;
+                    color: #5f0066;
+                    cursor: pointer;
+                    &:focus{
+                        outline: none;
+                    }
+                }
+                &:before{
+                    @include before(
+                        '',
+                        0,
+                        0
+                    );
+                    @include size(25%,35%);
+                    @include transform(rotateZ(-35deg) translateY(-85%));
+                    background-color: #5f0066;
+                }
+                border-radius: 0;
+                overflow: hidden;
+                .modal-body{
+                    padding: 30px 60px;
+                    .add-card-content{
+                        .logan{
+                            text-align: center;
+                            .title{
+                                margin-bottom: 20px;
+                                h1{
+                                    @include text(30px 'UTM BryantLG',null,uppercase,none);
+                                    color: #5f0066;
+                                    margin: 0;
+                                }
+                            }
+                            .text{
+                                p{
+                                    @include text(16px 'UTM Avo');
+                                    color: #505050;
+                                }
+                            }
+                        }
+                        .form-to-card{
+                            margin-top: 35px;
+                            form{
+                                .form-group{
+                                    @include flex();
+                                    label{
+                                        text-align: right;
+                                        width: 15%;
+                                        @include text(16px 'UTM Avo');
+                                        color: #505050;
+                                        white-space: nowrap;
+                                        line-height: 2;
+                                    }
+                                    .input{
+                                        margin-left: 35px;
+                                        width: 85%;
+                                        position: relative;
+                                        span.bottom{
+                                            position: absolute;
+                                            bottom: 0;
+                                            top: 0;
+                                            left: 0;
+                                            background-color: $bg-button;
+                                            transform-origin: top bottom;
+                                            @include size(100%,3px);
+                                            @include transform(scaleY(0));
+                                            @include transition(transform 0.3s ease-out);
+                                        }
+                                        .form-control{
+                                            @include size(100%,2.5rem);
+                                            border-radius: 0;
+                                            &:focus{
+                                                outline: none;
+                                                border-color: transparent;
+                                                background-color: $bg-product-gray;
+                                                opacity: .7;
+                                                box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.35);
+                                                ~ span.bottom{
+                                                    transform-origin: bottom right;
+                                                    @include transform(scaleY(1));
+                                                }
+                                            }
+                                            &::placeholder{
+                                                color: color-title;
+                                            }
+                                        }
+                                        textarea.form-control{
+                                            height: 120px;
+                                        }
+                                        span{
+                                            @include text(italic 14px 'UTM Avo');
+                                            color: $color-price;
+                                        }
+                                    }
+
+                                    //multi
+                                    &.multi-group{
+                                        .input{
+                                            width: 30%;
+                                        }
+                                        .sub-form{
+                                            margin-left: 20px;
+                                            width: calc(55% - 20px);
+                                            @include flex();
+                                            .form-group{
+                                                width: 100%;
+                                                label{
+                                                    text-align: center;
+                                                    width: 30%;
+                                                    white-space: nowrap;
+                                                    @include text(16px 'UTM Avo');
+                                                    color: #505050;
+                                                    white-space: nowrap;
+                                                    line-height: 2;
+                                                }
+                                                .input{
+                                                    margin-left: auto;
+                                                    width: 65%;
+                                                    .form-control{
+                                                        width: 100%;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

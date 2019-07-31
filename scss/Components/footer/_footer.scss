@@ -1,0 +1,180 @@
+footer{
+    background-color: $bg-footer;
+    // footer-wrapper
+    .footer-wrapper{
+        @include flex();
+        padding: 50px 0 35px 0;
+        //footer-info
+        .footer-info{
+            width: 30%;
+            .logo-footer{
+                margin-bottom: 10px;
+                img{
+                    @include img-fit(null,cover);
+                }
+            }
+            .name-company{
+                margin-bottom: 15px;
+                h4{
+                    @include text(bold 14px 'UTM BryantLG',null,uppercase);
+                    color: $color-text-footer;
+                }
+            }
+            .address{
+                border-left: 3px solid #aeadad;
+                padding-left: 8px;
+                p{
+                    @include text(12px 'UTM BryantLG');
+                    color: $color-text-footer;
+                    span{
+                        font-weight: bold;
+                    }
+                    a{
+                        color: $color-text-footer;
+                    }
+                    &:last-child{
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+        .footer-main{
+            width: 70%;
+            padding: 0 55px;
+            .menu-footer{
+                padding-top: 10px;
+                padding-bottom: 30px;
+                .nav-menu-footer{
+                    flex-wrap: nowrap;
+                    justify-content: space-between;
+                    li.nav-item{
+                        span{
+                            @include text(bold 14px 'UTM BryantLG',null,uppercase);
+                            color: #3b3b3b;
+                        }
+                    }
+                    .child-menu-footer{
+                        margin-top: 10px;
+                        .nav-child-menu-footer{
+                            display: block;
+                            li.item-child-footer{
+                                margin-bottom: 10px;
+                                a.nav-link{
+                                    @include text(12px 'UTM BryantLG');
+                                    padding: 0;
+                                    color: $color-text-footer;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .contact-footer{
+                padding-top: 12px;
+                border-top: 3px solid #aeadad;
+                @include flex();
+                .hotline{
+                    p{
+                        @include text(bold 12px 'UTM BryantLG');
+                        color: $color-text-footer;
+                        a{
+                            color: #790279;
+                        }
+                        span{
+                            color: #790279;
+                        }
+                    }
+                }
+                .social-footer{
+                    margin-left: auto;
+                    @include flex();
+                    span{
+                        @include text(bold 12px 'UTM BryantLG');
+                        color: $color-text-footer;
+                    }
+                    .nav-social-footer{
+                        margin-left: 10px;
+                        li.nav-item{
+                            margin-right: 5px;
+                            &:hover{
+                                &:nth-child(1){
+                                    a.nav-link{
+                                        background-color:#3b5998;
+                                        border-color: $color-w;
+                                        @include transform(translate(-0,-1px));
+                                        @include transition(all .4s ease);
+                                        box-shadow: 12px 12px 20px -12px rgba(0, 0, 0, 0.35);
+                                    }
+                                }
+                                &:nth-child(2){
+                                    a.nav-link{
+                                        background-color:#de0000;
+                                        border-color: $color-w;
+                                        @include transform(translate(-0,-1px));
+                                        @include transition(all .4s ease);
+                                        box-shadow: 12px 12px 20px -12px rgba(0, 0, 0, 0.35);
+                                    }                                
+                                }
+                                &:nth-child(3){
+                                    a.nav-link{
+                                        background-color:#E1306C;
+                                        border-color: $color-w;
+                                        @include transition(all .4s ease);
+                                        @include transform(translate(-0,-1px));
+                                        box-shadow: 12px 12px 20px -12px rgba(0, 0, 0, 0.35);
+                                    }   
+                                }
+                            }
+                            a.nav-link{
+                                @include size(28px,28px);
+                                @include flex(center,center);
+                                @include transition(all .4s ease);
+                                border-radius: 50%;
+                                border: 1px solid transparent;
+                                background-color: $color-black;
+                                color: $color-w;
+                                padding: 0;
+                            }
+                        }
+                    }
+                }
+                .logo-industry{
+                    margin-left: auto;
+                    img{
+                        @include img-fit(null,cover);
+                    }
+                }
+            }
+        }
+    }
+
+    // copy-rightf-footer
+    .copy-right-footer{
+        padding: 0.5rem 0;
+        background-color: $bg-copyright;
+        .copyright-wrapper{
+            @include flex(null,center);
+            .copyright{
+                p{
+                    margin-bottom: 0;
+                    @include text(10px 'UTM Avo');
+                    color: #010101;
+                }
+            }
+            .design-by{
+                margin-left: auto;
+                p{
+                    margin-bottom: 0;
+                    @include text(10px 'UTM Avo');
+                    color: #010101;
+                    a{
+                        color: #030303;
+                        text-transform: uppercase;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+    }
+
+}

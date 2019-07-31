@@ -1,0 +1,27 @@
+.pagi{
+    @include flex(center,null);
+    .pagination{
+        .page-item{
+            margin: 0 5px;
+            @include size(25px,30px);
+            @include flex(center,center);
+            .page-link{
+                @include size(100%,100%);
+                padding: 0;
+                border: 1px solid #888686;
+                border-radius: 0;
+                text-align: center;
+                @include text(14px 'UTM BryantLG',26px,uppercase);
+                color: $color-text-primary;
+                &.active{
+                    background-color: $color-title;
+                    color: $color-w;
+                }
+                &:focus{
+                    outline: none;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}
